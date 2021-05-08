@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+
+void total(int *p_total, int *p_bank) //total 함수 구현
+{
+	
+	int total=0; //total 함수 초기화
+
+	for (int i = 0; i < 4; ++i) 
+	{
+		total += p_bank[i];
+	}
+	*p_total = total; // p_total 값에 total 함수에 bank를 더한 총합을 넣는다.
+}
+
+void myaccounts(int *a) //myaccounts 함수 구현, void로 return은 안써도 된다.
+{
+	for (int i = 0; i < 4; i++)
+	{
+		cout << "      " << *(a + i) << "          |";
+
+	}
+	cout << endl;
+	
+}
+	
+int main()
+	{
+
+	int bank[4] = { 5000,4000,0,10 }; // bank 배열의 인덱스 값에 은행 별 계자 금액을 넣는다.
+	string bank_name[4] = { "하나", "우리", "신한", "국민" }; // bank_name 배열의 자료형은 string 으로 지정하고, 은행 명을 저장한다.
+	
+	int total_money; // 모든 은행 계좌에 있는 금액 총합을 저장할 변수
+	
+	
+	cout << "*******************************SWING 자산관리 서비스*******************************" << endl;
+	cout << "=================================은행 별 계좌 정보=================================" << endl;
+
+	for (int i = 0; i < 4; i++)
+	{
+		cout << "      " << *(bank_name + i)<< "          |";
+
+	}
+	cout << endl;
+	
+	myaccounts(bank); // myaccounts 함수를 불러온다.  
+
+
+	total(&total_money, bank); // total 함수에 a에 total_money 값을, b에 bank 값을 넣어준다.
+	
+	cout << "===================================================================================" << endl;
+	cout << "현재 SWING 자산관리 서비스에 등록된 회원님의 총 자산은 " << total_money << "원 입니다." << endl;
+	
+	return 0;
+
+	}
+	
